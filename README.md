@@ -4,13 +4,15 @@ This is an interpreter for the subset of Lisp described in the Lisp 1.5 Programm
 The program executes a simple REPL loop, reading a Lisp S-expression ("sexpr") from stdin or a file,
 evaluating the sexpr, and printing the result, then repeating until end-of-file.
 
-Usage: lisp [--trace] [file]
+Usage: `lisp [--trace] [file]`
 
 Options:
-    --trace     Trace calls to eval
-    file        Read input from file instead of stdin
+
+- `--trace`     Trace calls to eval
+- `file`        Read input from file instead of stdin
 
 When reading from stdin, the program prompts the user with the string ">>".
+When printing the result of evaluation, the program first prints "=>".
 
 ## Input syntax
 
@@ -61,6 +63,7 @@ This sexpr simply quotes a list.
 (quote (hello world))
 
 ; Result: (hello world)
+```
 
 ### Find first atom
 This sexpr defines a function via `lambda`, labels the function as `ff`,
