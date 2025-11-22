@@ -1,0 +1,5 @@
+((lambda (ff x) (ff x))
+ (quote (lambda (x)
+           (cond ((atom x) x)
+                           ((quote t) (ff (car x))))))
+                            (quote ((a) b c)))
