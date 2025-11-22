@@ -14,7 +14,9 @@ Options:
 When reading from stdin, the program prompts the user with the string ">>".
 When printing the result of evaluation, the program first prints "=>".
 
-## Input syntax
+## The Lisp dialect
+
+### Input syntax
 
 The intepreter expects the usual, simple syntax for Lisp sexprs.
 That is, an sexpr can be
@@ -24,17 +26,28 @@ That is, an sexpr can be
 - a list, such as `(this is a list)` or `(cons (quote x) (quote y))`; or
 - an empty list, `()`.
 
+Atoms must begin with an alphabetical character,
+but may contains digits and the special characters "-", "_", and "?".
+Atom names are case-sensitive.
+
+Comments in the input begin with a semicolon (;).
+The interpreter ignores all text from the semicolon to the end-of-line character.
+
 The interpreter recognizes two pre-defined, global atoms
 
 - nil
 - t
 
-Note that an empty list, `()`, is equivalent to nil.
+Note that an empty list, `()`, is equivalent to nil; that is, equal in the sense of `eq`.
 
-## Functions
+### Data types
+The dialect has only atoms and lists. Numbers and string literals are not supported.
 
-The interpreter implements these standard Lisp functions
+### Functions
 
+The interpreter implements only these primitive Lisp functions
+
+- null
 - atom
 - eq
 - cons
@@ -46,11 +59,17 @@ and it implements these Lisp special forms
 - quote
 - cond
 - lambda
+- label
 
-## Comments
+In particular, there are no functions with side-effects.
+This is a purely functional subset.
 
-Comments in the input begin with a semicolon (;).
-The interpreter ignores all text from the semicolon to the end-of-line character.
+### Semantics
+The dialect is dynamically scoped, in the spirit of the Manual.
+It is not lexically scoped.
+
+Note that `label` is not strictly required, because `lambda` can perform labeling
+in the style of the Y cominator. But `label` is included for convenience and in the spirit of the Manual.
 
 ## Examples
 These are examples of sexprs that the interpreter can evaluate.
