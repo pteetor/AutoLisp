@@ -64,11 +64,12 @@ for example, you might fix the heap size at one million "cons" cells.
 Likewise, assume there is a fixed-size space for atoms.
 (In the future, we may add command line options to let the user set these sizes.)
 
-If the input sexpr contans a syntax error, the interpreter should throw the error, report the error to the user,
-and resume the REPL loop.
+If the input sexpr contans a syntax error, the interpreter should throw the error,
+report the error to the user, and resume the REPL loop.
 
-If the interpreter encounters a fatal error, it should report the error and halt. For example,
-if either cons space or atom space are still exhausted after garbage collection, that is a fatal error.
+If the interpreter encounters a fatal error, it should report the error and halt.
+For example, if either cons space or atom space are still exhausted
+after garbage collection, that is a fatal error.
 
 For the `--trace` option, just print something simple when `eval` is called;
 for example, just the name of the function being evaluated (if the function is an atom).

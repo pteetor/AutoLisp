@@ -38,7 +38,8 @@ The interpreter recognizes two pre-defined, global atoms
 - nil
 - t
 
-Note that an empty list, `()`, is equivalent to nil; that is, equal in the sense of `eq`.
+Note that an empty list, `()`, is represented by the global atom `nil`,
+meaning `(eq () nil)` is true.
 
 ### Data types
 The dialect has only atoms and lists. Numbers and string literals are not supported.
