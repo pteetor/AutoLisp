@@ -1,0 +1,6 @@
+((label reverse (lambda (x)
+   ((label rev-append (lambda (x acc)
+      (cond ((null x) acc)
+            (t (rev-append (cdr x) (cons (car x) acc))))))
+    x nil)))
+ (quote (a b c d)))
