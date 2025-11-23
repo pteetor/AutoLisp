@@ -12,19 +12,42 @@
 
 void repl() {
     std::cout << "AutoLisp REPL\n";
+    std::string buffer;
     while (true) {
-        std::cout << ">> ";
+        if (buffer.empty()) {
+            std::cout << ">> ";
+        } else {
+            std::cout << ">>>> ";
+        }
+
         std::string line;
         if (!std::getline(std::cin, line)) break;
-        if (line.empty()) continue;
+
+        // If buffer is empty and line is empty, just skip
+        if (buffer.empty() && line.empty()) continue;
+
+        buffer += line + "\n";
 
         try {
-            Cell* expr = read(line);
-            if (!expr) continue;
+            Cell* expr = read(buffer);
+            if (!expr) {
+                // Token stream was empty (whitespace/comments only)
+                // Clear buffer to restart fresh
+                buffer.clear();
+                continue;
+            }
             Cell* result = eval(expr, nil);
             std::cout << "=> " << print(result) << "\n";
+            buffer.clear();
         } catch (const std::exception& e) {
-            std::cout << "Error: " << e.what() << "\n";
+            std::string msg = e.what();
+            if (msg == "Unexpected EOF") {
+                // Incomplete expression, continue reading
+                continue;
+            } else {
+                std::cout << "Error: " << msg << "\n";
+                buffer.clear();
+            }
         }
     }
 }
