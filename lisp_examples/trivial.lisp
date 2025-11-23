@@ -1,0 +1,5 @@
+(cons (quote a) (quote b))
+(car (quote (a b)))
+(cdr (quote (a b)))
+(atom (quote a))
+(atom (quote (a)))
