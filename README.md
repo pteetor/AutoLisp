@@ -12,6 +12,8 @@ Options:
 - `file`        Read input from file instead of stdin
 
 When reading from stdin, the program prompts the user with the string ">>".
+If the sexpr extends over multiple lines, the program reads input lines until it reaches the end of the sexpr.
+When reading continuation lines, the program prompts the user with the string ">>>>".
 When printing the result of evaluation, the program first prints "=>".
 
 ## The Lisp dialect
