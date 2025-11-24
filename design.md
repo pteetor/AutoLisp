@@ -124,7 +124,7 @@ Implements the Lisp 1.5 `eval` and `apply` logic.
     *   Test `eval` with primitives.
     *   Test `lambda` and recursion.
     *   Test GC by filling the heap and verifying reclamation.
-*   **Integration Tests**: Run the provided examples in `lisp/` directory and verify output.
+*   **Integration Tests**: Run the provided examples in `examples/` directory and verify output.
 
 ## 5. Globals and Constants
 

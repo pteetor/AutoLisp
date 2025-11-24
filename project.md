@@ -27,7 +27,7 @@ use Markdown format.
     - Integration testing.
 3. Coding: Code and test the program, iterating as needed to correct
    and improve the code.
-4. Integration testing: Run the examples in the `lisp` subdirectory.
+4. Integration testing: Run the examples in the `examples` subdirectory.
    Confirm the they produce the expected result.
 
 ## Design
@@ -98,6 +98,6 @@ include unit tests for the important functions defined in that file.
 Note that the required `doctest.h` header file is already in the repository.
 
 ## Integration testing
-The subdirectory `lisp` contains several examples of Lisp programs
+The subdirectory `examples` contains several examples of Lisp programs
 which should work correctly.
 Use them to write a shell script which runs those examples.

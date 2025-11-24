@@ -82,7 +82,7 @@ This plan outlines the steps to implement the AutoLisp interpreter. The project 
 
 1.  **Test Scripting**
     *   Create a shell script `test_integration.sh`.
-    *   The script will run the `lisp` executable against the files in the `lisp/` directory (e.g., `trivial.lisp`, `append.lisp`).
+    *   The script will run the `lisp` executable against the files in the `examples/` directory (e.g., `trivial.lisp`, `append.lisp`).
     *   Compare output with expected results (or manual verification if expected output isn't provided).
 
 2.  **Final Verification**
